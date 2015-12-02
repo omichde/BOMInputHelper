@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DE503FEF1C06EA2800CC2B8D"
+               BlueprintIdentifier = "DE59FA841C0F9F4000308C42"
                BuildableName = "BOMInputHelper.app"
                BlueprintName = "BOMInputHelper"
                ReferencedContainer = "container:BOMInputHelper.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DE503FEF1C06EA2800CC2B8D"
+            BlueprintIdentifier = "DE59FA841C0F9F4000308C42"
             BuildableName = "BOMInputHelper.app"
             BlueprintName = "BOMInputHelper"
             ReferencedContainer = "container:BOMInputHelper.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DE503FEF1C06EA2800CC2B8D"
+            BlueprintIdentifier = "DE59FA841C0F9F4000308C42"
             BuildableName = "BOMInputHelper.app"
             BlueprintName = "BOMInputHelper"
             ReferencedContainer = "container:BOMInputHelper.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DE503FEF1C06EA2800CC2B8D"
+            BlueprintIdentifier = "DE59FA841C0F9F4000308C42"
             BuildableName = "BOMInputHelper.app"
             BlueprintName = "BOMInputHelper"
             ReferencedContainer = "container:BOMInputHelper.xcodeproj">

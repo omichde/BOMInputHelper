@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/omich/Projekte/BOM/BOMInputHelper/BOMInputHelper/BOMInputHelper.xcodeproj">
+      location = "self:BOMInputHelper.xcodeproj">
    </FileRef>
 </Workspace>
