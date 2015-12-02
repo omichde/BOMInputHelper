@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "InputHelper.h"
+#import "BOMInputHelper.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *text1;
@@ -21,9 +21,9 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
-	self.text1.inputAccessoryView = [[InputHelper alloc] initForView:self.text1];
-	self.text2.inputAccessoryView = [[InputHelper alloc] initForView:self.text2];
-	self.text3.inputAccessoryView = [[InputHelper alloc] initForView:self.text3];
+	self.text1.inputAccessoryView = [[BOMInputHelper alloc] initForView:self.text1];
+	self.text2.inputAccessoryView = [[BOMInputHelper alloc] initForView:self.text2];
+	self.text3.inputAccessoryView = [[BOMInputHelper alloc] initForView:self.text3];
 }
 
 @end

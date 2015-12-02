@@ -6,18 +6,18 @@
 //  Copyright © 2015 Oliver Michalak. All rights reserved.
 //
 
-#import "InputHelper.h"
+#import "BOMInputHelper.h"
 
-static NSString *kInputHelperKey = @"_inputHelper";
+static NSString *kInputHelperKey = @"_BOMInputHelper";
 static CGFloat kPadding = 2;
 
-@interface InputHelper ()
+@interface BOMInputHelper ()
 @property (nonatomic) UIScrollView *scrollView;
 @property (weak, nonatomic) UIView<UITextInput> *referenceView;
 
 @end
 
-@implementation InputHelper
+@implementation BOMInputHelper
 
 - (instancetype) initForView:(UIView<UITextInput>*) view {
 	CGRect frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 30);

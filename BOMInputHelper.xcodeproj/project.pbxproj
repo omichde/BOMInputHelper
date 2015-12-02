@@ -13,22 +13,22 @@
 		DE503FFE1C06EA2800CC2B8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE503FFC1C06EA2800CC2B8D /* Main.storyboard */; };
 		DE5040001C06EA2800CC2B8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE503FFF1C06EA2800CC2B8D /* Assets.xcassets */; };
 		DE5040031C06EA2800CC2B8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE5040011C06EA2800CC2B8D /* LaunchScreen.storyboard */; };
-		DE50400C1C06EBE000CC2B8D /* InputHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE50400B1C06EBE000CC2B8D /* InputHelper.m */; };
+		DE50400C1C06EBE000CC2B8D /* BOMInputHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DE50400B1C06EBE000CC2B8D /* BOMInputHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DE503FF01C06EA2800CC2B8D /* InputHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InputHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE503FF01C06EA2800CC2B8D /* BOMInputHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BOMInputHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE503FF41C06EA2800CC2B8D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DE503FF61C06EA2800CC2B8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		DE503FF71C06EA2800CC2B8D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DE503FF91C06EA2800CC2B8D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DE503FFA1C06EA2800CC2B8D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DE503FF61C06EA2800CC2B8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = InputHelper/AppDelegate.h; sourceTree = "<group>"; };
+		DE503FF71C06EA2800CC2B8D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = InputHelper/AppDelegate.m; sourceTree = "<group>"; };
+		DE503FF91C06EA2800CC2B8D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = InputHelper/ViewController.h; sourceTree = "<group>"; };
+		DE503FFA1C06EA2800CC2B8D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = InputHelper/ViewController.m; sourceTree = "<group>"; };
 		DE503FFD1C06EA2800CC2B8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DE503FFF1C06EA2800CC2B8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DE503FFF1C06EA2800CC2B8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = InputHelper/Assets.xcassets; sourceTree = "<group>"; };
 		DE5040021C06EA2800CC2B8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DE5040041C06EA2800CC2B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DE50400A1C06EBE000CC2B8D /* InputHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputHelper.h; sourceTree = "<group>"; };
-		DE50400B1C06EBE000CC2B8D /* InputHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputHelper.m; sourceTree = "<group>"; };
+		DE5040041C06EA2800CC2B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = InputHelper/Info.plist; sourceTree = "<group>"; };
+		DE50400A1C06EBE000CC2B8D /* BOMInputHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOMInputHelper.h; sourceTree = "<group>"; };
+		DE50400B1C06EBE000CC2B8D /* BOMInputHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOMInputHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +45,16 @@
 		DE503FE71C06EA2800CC2B8D = {
 			isa = PBXGroup;
 			children = (
-				DE503FF21C06EA2800CC2B8D /* InputHelper */,
+				DE503FF61C06EA2800CC2B8D /* AppDelegate.h */,
+				DE503FF71C06EA2800CC2B8D /* AppDelegate.m */,
+				DE503FF91C06EA2800CC2B8D /* ViewController.h */,
+				DE503FFA1C06EA2800CC2B8D /* ViewController.m */,
+				DE503FFC1C06EA2800CC2B8D /* Main.storyboard */,
+				DE503FFF1C06EA2800CC2B8D /* Assets.xcassets */,
+				DE5040011C06EA2800CC2B8D /* LaunchScreen.storyboard */,
+				DE5040041C06EA2800CC2B8D /* Info.plist */,
+				DE503FF31C06EA2800CC2B8D /* Supporting Files */,
+				DE503FF21C06EA2800CC2B8D /* BOMInputHelper */,
 				DE503FF11C06EA2800CC2B8D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,26 +62,18 @@
 		DE503FF11C06EA2800CC2B8D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DE503FF01C06EA2800CC2B8D /* InputHelper.app */,
+				DE503FF01C06EA2800CC2B8D /* BOMInputHelper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DE503FF21C06EA2800CC2B8D /* InputHelper */ = {
+		DE503FF21C06EA2800CC2B8D /* BOMInputHelper */ = {
 			isa = PBXGroup;
 			children = (
-				DE503FF61C06EA2800CC2B8D /* AppDelegate.h */,
-				DE503FF71C06EA2800CC2B8D /* AppDelegate.m */,
-				DE503FF91C06EA2800CC2B8D /* ViewController.h */,
-				DE503FFA1C06EA2800CC2B8D /* ViewController.m */,
-				DE503FFC1C06EA2800CC2B8D /* Main.storyboard */,
-				DE50400A1C06EBE000CC2B8D /* InputHelper.h */,
-				DE50400B1C06EBE000CC2B8D /* InputHelper.m */,
-				DE503FFF1C06EA2800CC2B8D /* Assets.xcassets */,
-				DE5040011C06EA2800CC2B8D /* LaunchScreen.storyboard */,
-				DE5040041C06EA2800CC2B8D /* Info.plist */,
-				DE503FF31C06EA2800CC2B8D /* Supporting Files */,
+				DE50400A1C06EBE000CC2B8D /* BOMInputHelper.h */,
+				DE50400B1C06EBE000CC2B8D /* BOMInputHelper.m */,
 			);
+			name = BOMInputHelper;
 			path = InputHelper;
 			sourceTree = "<group>";
 		};
@@ -82,14 +83,15 @@
 				DE503FF41C06EA2800CC2B8D /* main.m */,
 			);
 			name = "Supporting Files";
+			path = InputHelper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DE503FEF1C06EA2800CC2B8D /* InputHelper */ = {
+		DE503FEF1C06EA2800CC2B8D /* BOMInputHelper */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DE5040071C06EA2800CC2B8D /* Build configuration list for PBXNativeTarget "InputHelper" */;
+			buildConfigurationList = DE5040071C06EA2800CC2B8D /* Build configuration list for PBXNativeTarget "BOMInputHelper" */;
 			buildPhases = (
 				DE503FEC1C06EA2800CC2B8D /* Sources */,
 				DE503FED1C06EA2800CC2B8D /* Frameworks */,
@@ -99,9 +101,9 @@
 			);
 			dependencies = (
 			);
-			name = InputHelper;
+			name = BOMInputHelper;
 			productName = InputHelper;
-			productReference = DE503FF01C06EA2800CC2B8D /* InputHelper.app */;
+			productReference = DE503FF01C06EA2800CC2B8D /* BOMInputHelper.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -118,7 +120,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DE503FEB1C06EA2800CC2B8D /* Build configuration list for PBXProject "InputHelper" */;
+			buildConfigurationList = DE503FEB1C06EA2800CC2B8D /* Build configuration list for PBXProject "BOMInputHelper" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -131,7 +133,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DE503FEF1C06EA2800CC2B8D /* InputHelper */,
+				DE503FEF1C06EA2800CC2B8D /* BOMInputHelper */,
 			);
 		};
 /* End PBXProject section */
@@ -154,7 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE50400C1C06EBE000CC2B8D /* InputHelper.m in Sources */,
+				DE50400C1C06EBE000CC2B8D /* BOMInputHelper.m in Sources */,
 				DE503FFB1C06EA2800CC2B8D /* ViewController.m in Sources */,
 				DE503FF81C06EA2800CC2B8D /* AppDelegate.m in Sources */,
 				DE503FF51C06EA2800CC2B8D /* main.m in Sources */,
@@ -170,6 +172,7 @@
 				DE503FFD1C06EA2800CC2B8D /* Base */,
 			);
 			name = Main.storyboard;
+			path = InputHelper;
 			sourceTree = "<group>";
 		};
 		DE5040011C06EA2800CC2B8D /* LaunchScreen.storyboard */ = {
@@ -178,6 +181,7 @@
 				DE5040021C06EA2800CC2B8D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = InputHelper;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -269,8 +273,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = InputHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.werk01.InputHelper;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.werk01.BOMInputHelper;
+				PRODUCT_NAME = BOMInputHelper;
 			};
 			name = Debug;
 		};
@@ -280,15 +284,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = InputHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.werk01.InputHelper;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.werk01.BOMInputHelper;
+				PRODUCT_NAME = BOMInputHelper;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DE503FEB1C06EA2800CC2B8D /* Build configuration list for PBXProject "InputHelper" */ = {
+		DE503FEB1C06EA2800CC2B8D /* Build configuration list for PBXProject "BOMInputHelper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DE5040051C06EA2800CC2B8D /* Debug */,
@@ -297,13 +301,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DE5040071C06EA2800CC2B8D /* Build configuration list for PBXNativeTarget "InputHelper" */ = {
+		DE5040071C06EA2800CC2B8D /* Build configuration list for PBXNativeTarget "BOMInputHelper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DE5040081C06EA2800CC2B8D /* Debug */,
 				DE5040091C06EA2800CC2B8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

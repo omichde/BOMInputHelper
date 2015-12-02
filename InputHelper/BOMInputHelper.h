@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InputHelper : UIView
+@interface BOMInputHelper : UIView
 
 - (instancetype) initForView:(UIView<UITextInput>*) view;
 

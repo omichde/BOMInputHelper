@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DE503FEF1C06EA2800CC2B8D"
-               BuildableName = "InputHelper.app"
-               BlueprintName = "InputHelper"
-               ReferencedContainer = "container:InputHelper.xcodeproj">
+               BuildableName = "BOMInputHelper.app"
+               BlueprintName = "BOMInputHelper"
+               ReferencedContainer = "container:BOMInputHelper.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DE503FEF1C06EA2800CC2B8D"
-            BuildableName = "InputHelper.app"
-            BlueprintName = "InputHelper"
-            ReferencedContainer = "container:InputHelper.xcodeproj">
+            BuildableName = "BOMInputHelper.app"
+            BlueprintName = "BOMInputHelper"
+            ReferencedContainer = "container:BOMInputHelper.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DE503FEF1C06EA2800CC2B8D"
-            BuildableName = "InputHelper.app"
-            BlueprintName = "InputHelper"
-            ReferencedContainer = "container:InputHelper.xcodeproj">
+            BuildableName = "BOMInputHelper.app"
+            BlueprintName = "BOMInputHelper"
+            ReferencedContainer = "container:BOMInputHelper.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DE503FEF1C06EA2800CC2B8D"
-            BuildableName = "InputHelper.app"
-            BlueprintName = "InputHelper"
-            ReferencedContainer = "container:InputHelper.xcodeproj">
+            BuildableName = "BOMInputHelper.app"
+            BlueprintName = "BOMInputHelper"
+            ReferencedContainer = "container:BOMInputHelper.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
