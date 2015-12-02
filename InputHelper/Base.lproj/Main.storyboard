@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="500"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Text1" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="skj-Lp-ao5">
+                                <rect key="frame" x="20" y="28" width="360" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Text2" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dDC-OR-OHo">
+                                <rect key="frame" x="20" y="66" width="360" height="130"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="ZkU-fa-ukf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Text3" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yKv-J2-TDE">
+                                <rect key="frame" x="20" y="204" width="360" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dDC-OR-OHo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="52W-ax-E61"/>
+                            <constraint firstItem="dDC-OR-OHo" firstAttribute="top" secondItem="skj-Lp-ao5" secondAttribute="bottom" constant="8" id="BkL-10-ey0"/>
+                            <constraint firstItem="yKv-J2-TDE" firstAttribute="top" secondItem="dDC-OR-OHo" secondAttribute="bottom" constant="8" id="E6k-4J-dyV"/>
+                            <constraint firstItem="skj-Lp-ao5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="IIy-kp-X0O"/>
+                            <constraint firstItem="skj-Lp-ao5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="YLi-eo-OUu"/>
+                            <constraint firstAttribute="trailing" secondItem="yKv-J2-TDE" secondAttribute="trailing" constant="20" id="YyN-6b-tJe"/>
+                            <constraint firstAttribute="trailing" secondItem="skj-Lp-ao5" secondAttribute="trailing" constant="20" id="b5g-0M-wuu"/>
+                            <constraint firstItem="yKv-J2-TDE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="eAc-0Q-K2w"/>
+                            <constraint firstAttribute="trailing" secondItem="dDC-OR-OHo" secondAttribute="trailing" constant="20" id="tan-ng-Yhb"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="500"/>
+                    <connections>
+                        <outlet property="text1" destination="skj-Lp-ao5" id="Au6-k4-J87"/>
+                        <outlet property="text2" destination="dDC-OR-OHo" id="V4T-16-HaW"/>
+                        <outlet property="text3" destination="yKv-J2-TDE" id="iMP-64-3tI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="259" y="316"/>
+        </scene>
+    </scenes>
+</document>
