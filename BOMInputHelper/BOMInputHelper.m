@@ -9,22 +9,31 @@
 #import "BOMInputHelper.h"
 
 static NSString *kInputHelperKey = @"_BOMInputHelper";
+static NSString *kInputHelperDefaultGroupName = @"_BOMInputHelperDefaultGroupName";
 static CGFloat kPadding = 2;
 
 @interface BOMInputHelper ()
 @property (nonatomic) UIScrollView *scrollView;
 @property (weak, nonatomic) UIView<UITextInput> *referenceView;
+@property (nonatomic) NSString *groupName;
 
 @end
 
 @implementation BOMInputHelper
 
 - (instancetype) initForView:(UIView<UITextInput>*) view {
-	CGRect frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 30);
-	if ((self = [self initWithFrame:frame])) {
-		self.referenceView = view;
-	}
-	return self;
+  return [self initForView:view forGroup:kInputHelperDefaultGroupName];
+}
+
+- (instancetype) initForView:(UIView<UITextInput>*) view forGroup:(NSString*)groupName {
+  CGRect frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 30);
+  if ((self = [self initWithFrame:frame])) {
+    _referenceView = view;
+    _groupName = groupName;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update) name:self.lookupKey object:nil];
+    [self update];
+  }
+  return self;
 }
 
 - (instancetype) initWithFrame:(CGRect)frame {
@@ -34,14 +43,16 @@ static CGFloat kPadding = 2;
 		self.scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
 		self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 		[self addSubview:self.scrollView];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update) name:kInputHelperKey object:nil];
-		[self update];
 	}
 	return self;
 }
 
 - (void) dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (NSString*) lookupKey {
+  return [NSString stringWithFormat:@"%@:%@", kInputHelperKey, self.groupName];
 }
 
 - (void) update {
@@ -59,7 +70,7 @@ static CGFloat kPadding = 2;
 	[self.scrollView addSubview:addButton];
 
 	NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:12], NSForegroundColorAttributeName: [UIColor whiteColor]};
-	NSArray <NSString*> *list = [[NSUserDefaults standardUserDefaults] objectForKey:kInputHelperKey];
+	NSArray <NSString*> *list = [[NSUserDefaults standardUserDefaults] objectForKey:self.lookupKey];
 	CGFloat xPos = CGRectGetWidth(addButton.frame);
 	for (NSString *token in list) {
 		UIButton *button = [[UIButton alloc] initWithFrame:CGRectZero];
@@ -129,24 +140,24 @@ static CGFloat kPadding = 2;
 - (void) addToken: (NSString*) token {
 	if (!token.length)
 		return;
-	NSMutableArray <NSString*> *list = [[[NSUserDefaults standardUserDefaults] objectForKey:kInputHelperKey] mutableCopy];
+	NSMutableArray <NSString*> *list = [[[NSUserDefaults standardUserDefaults] objectForKey:self.lookupKey] mutableCopy];
 	list = list ?: [@[] mutableCopy];
 	NSUInteger pos = [list indexOfObject:token];
 	if (NSNotFound == pos) {
 		[list insertObject:token atIndex:0];
-		[[NSUserDefaults standardUserDefaults] setObject:list forKey:kInputHelperKey];
-		[[NSNotificationCenter defaultCenter] postNotificationName:kInputHelperKey object:nil];
+		[[NSUserDefaults standardUserDefaults] setObject:list forKey:self.lookupKey];
+		[[NSNotificationCenter defaultCenter] postNotificationName:self.lookupKey object:nil];
 	}
 }
 
 - (void) removeToken: (NSString*) token {
-	NSMutableArray <NSString*> *list = [[[NSUserDefaults standardUserDefaults] objectForKey:kInputHelperKey] mutableCopy];
+	NSMutableArray <NSString*> *list = [[[NSUserDefaults standardUserDefaults] objectForKey:self.lookupKey] mutableCopy];
 	list = list ?: [@[] mutableCopy];
 	NSUInteger pos = [list indexOfObject:token];
 	if (NSNotFound != pos) {
 		[list removeObjectAtIndex:pos];
-		[[NSUserDefaults standardUserDefaults] setObject:list forKey:kInputHelperKey];
-		[[NSNotificationCenter defaultCenter] postNotificationName:kInputHelperKey object:nil];
+		[[NSUserDefaults standardUserDefaults] setObject:list forKey:self.lookupKey];
+		[[NSNotificationCenter defaultCenter] postNotificationName:self.lookupKey object:nil];
 	}
 }
 

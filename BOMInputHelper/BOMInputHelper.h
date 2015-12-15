@@ -12,6 +12,8 @@
 
 - (instancetype) initForView:(UIView<UITextInput>*) view;
 
+- (instancetype) initForView:(UIView<UITextInput>*) view forGroup:(NSString*)groupName;
+
 - (void) addToken: (NSString*) token;
 
 - (void) removeToken: (NSString*) token;
