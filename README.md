@@ -14,9 +14,7 @@ Copy the `BOMInputHelper.h`, `BOMInputHelper.m` into your project.
 
 # Compatibility
 
-Tested and developed under iOS8, it should work under iOS7 as well.
-
-# Version
+DarkMode support for iOS 13. Tested and developed under iOS8, it should work under iOS7 as well.
 
 # Contact
 

@@ -27,8 +27,9 @@
 		DE59FA941C0F9F4000308C42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE59FA971C0F9F4000308C42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE59FA991C0F9F4000308C42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DE59FA9F1C0F9F6E00308C42 /* BOMInputHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BOMInputHelper.h; path = BOMInputHelper/BOMInputHelper.h; sourceTree = "<group>"; };
-		DE59FAA01C0F9F6E00308C42 /* BOMInputHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BOMInputHelper.m; path = BOMInputHelper/BOMInputHelper.m; sourceTree = "<group>"; };
+		DE59FA9F1C0F9F6E00308C42 /* BOMInputHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BOMInputHelper.h; path = BOMInputHelper/BOMInputHelper/BOMInputHelper.h; sourceTree = "<group>"; };
+		DE59FAA01C0F9F6E00308C42 /* BOMInputHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BOMInputHelper.m; path = BOMInputHelper/BOMInputHelper/BOMInputHelper.m; sourceTree = "<group>"; };
+		DEB2B2392353CA27002F57A0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +46,7 @@
 		DE59FA7C1C0F9F4000308C42 = {
 			isa = PBXGroup;
 			children = (
+				DEB2B2392353CA27002F57A0 /* README.md */,
 				DE59FA9F1C0F9F6E00308C42 /* BOMInputHelper.h */,
 				DE59FAA01C0F9F6E00308C42 /* BOMInputHelper.m */,
 				DE59FA871C0F9F4000308C42 /* BOMInputHelper */,
@@ -123,6 +125,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);

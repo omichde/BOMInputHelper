@@ -22,7 +22,14 @@
 	[super viewDidLoad];
 
 	self.text1.inputAccessoryView = [[BOMInputHelper alloc] initForView:self.text1];
-	self.text2.inputAccessoryView = [[BOMInputHelper alloc] initForView:self.text2 forGroup:@"email"];
+	BOMInputHelper *helper = [[BOMInputHelper alloc] initForView:self.text2 forGroup:@"email"];
+	helper.editable = NO;
+	helper.liveFilter = YES;
+	[helper addToken:@"everybody@mac.com"];
+	[helper addToken:@"them@mac.com"];
+	[helper addToken:@"you@mac.com"];
+	[helper addToken:@"me@mac.com"];
+	self.text2.inputAccessoryView = helper;
 	self.text3.inputAccessoryView = [[BOMInputHelper alloc] initForView:self.text3];
 }
 

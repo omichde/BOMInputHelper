@@ -16,7 +16,8 @@ static CGFloat kPadding = 2;
 @property (nonatomic) UIScrollView *scrollView;
 @property (weak, nonatomic) UIView<UITextInput> *referenceView;
 @property (nonatomic) NSString *groupName;
-
+@property (readonly, nonatomic) UIColor *generalBackgroundColor;
+@property (readonly, nonatomic) BOOL isDarkModeEnabled;
 @end
 
 @implementation BOMInputHelper
@@ -26,19 +27,22 @@ static CGFloat kPadding = 2;
 }
 
 - (instancetype) initForView:(UIView<UITextInput>*) view forGroup:(NSString*)groupName {
-  CGRect frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 30);
-  if ((self = [self initWithFrame:frame])) {
-    _referenceView = view;
-    _groupName = groupName;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update) name:self.lookupKey object:nil];
-    [self update];
-  }
-  return self;
+	CGRect frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 30);
+	if ((self = [self initWithFrame:frame])) {
+		_referenceView = view;
+		_groupName = groupName;
+		_editable = YES;
+		_liveFilter = NO;
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update) name:self.lookupKey object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(filter:) name:UITextFieldTextDidChangeNotification object:nil];
+		[self update];
+	}
+	return self;
 }
 
 - (instancetype) initWithFrame:(CGRect)frame {
 	if ((self = [super initWithFrame:frame])) {
-		self.backgroundColor = [UIColor lightGrayColor];
+		self.backgroundColor = self.generalBackgroundColor;
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 		self.scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
 		self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -49,6 +53,11 @@ static CGFloat kPadding = 2;
 
 - (void) dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void) setEditable:(BOOL)editable {
+	_editable = editable;
+	[self update];
 }
 
 - (NSString*) lookupKey {
@@ -63,19 +72,28 @@ static CGFloat kPadding = 2;
 
 	CGFloat viewSize = CGRectGetHeight(self.scrollView.frame);
 
-	UIButton *addButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
-	addButton.frame = CGRectMake(0, 0, viewSize, viewSize);
-	addButton.tintColor = [UIColor whiteColor];
-	[addButton addTarget:self action:@selector(addPressed) forControlEvents:UIControlEventTouchUpInside];
-	[self.scrollView addSubview:addButton];
+	UIButton *addButton;
+	if (self.editable) {
+		addButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+		addButton.frame = CGRectMake(0, 0, viewSize, viewSize);
+		addButton.tintColor = [UIColor whiteColor];
+		[addButton addTarget:self action:@selector(addPressed) forControlEvents:UIControlEventTouchUpInside];
+		[self.scrollView addSubview:addButton];
+	}
 
 	NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:12], NSForegroundColorAttributeName: [UIColor whiteColor]};
 	NSArray <NSString*> *list = [[NSUserDefaults standardUserDefaults] objectForKey:self.lookupKey];
 	CGFloat xPos = CGRectGetWidth(addButton.frame);
 	for (NSString *token in list) {
+		if (self.liveFilter) {
+			NSString *string = [self.referenceView textInRange:[self.referenceView textRangeFromPosition:self.referenceView.beginningOfDocument toPosition:self.referenceView.endOfDocument]];
+			if (string.length && [token rangeOfString:string].location == NSNotFound)
+				continue;
+		}
+		
 		UIButton *button = [[UIButton alloc] initWithFrame:CGRectZero];
 		button.layer.cornerRadius = (viewSize - 2 * kPadding) / 2;
-		button.layer.borderColor = [UIColor darkGrayColor].CGColor;
+		button.layer.borderColor = self.generalBackgroundColor.CGColor;
 		button.layer.borderWidth = 1;
 		button.backgroundColor = [UIColor grayColor];
 		[button setAttributedTitle:[[NSAttributedString alloc] initWithString:token attributes:attributes] forState:UIControlStateNormal];
@@ -83,13 +101,22 @@ static CGFloat kPadding = 2;
 		button.frame = CGRectMake(xPos, kPadding, MIN(200, viewSize / 2 + ceil(textSize.width)), viewSize - 2 * kPadding);
 
 		[button addTarget:self action:@selector(tokenPressed:) forControlEvents:UIControlEventTouchUpInside];
-		UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(tokenLongPressed:)];
-		[button addGestureRecognizer:longPress];
 		[self.scrollView addSubview:button];
+
+		if (self.editable) {
+			UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(tokenLongPressed:)];
+			[button addGestureRecognizer:longPress];
+		}
 
 		xPos += CGRectGetWidth(button.frame) + 2 * kPadding;
 	}
 	self.scrollView.contentSize = CGSizeMake(xPos, viewSize - 2 * kPadding);
+}
+
+- (void) filter:(NSNotification*)note {
+	if (note.object == self.referenceView && self.liveFilter) {
+		[self update];
+	}
 }
 
 - (void) addPressed {
@@ -108,9 +135,14 @@ static CGFloat kPadding = 2;
 }
 
 - (void) tokenPressed: (UIButton*) button {
-	UITextRange *range = [self.referenceView selectedTextRange];
-	if (range) {
-		[self.referenceView replaceRange:range withText:button.currentAttributedTitle.string];
+	if (self.liveFilter) {
+		[self.referenceView replaceRange:[self.referenceView textRangeFromPosition:self.referenceView.beginningOfDocument toPosition:self.referenceView.endOfDocument] withText:button.currentAttributedTitle.string];
+	}
+	else {
+		UITextRange *range = [self.referenceView selectedTextRange];
+		if (range) {
+			[self.referenceView replaceRange:range withText:button.currentAttributedTitle.string];
+		}
 	}
 }
 
@@ -133,7 +165,7 @@ static CGFloat kPadding = 2;
 			}
 			// don't break;
 		default:
-			button.layer.borderColor = [UIColor darkGrayColor].CGColor;
+			button.layer.borderColor = self.generalBackgroundColor.CGColor;
 	}
 }
 
@@ -159,6 +191,17 @@ static CGFloat kPadding = 2;
 		[[NSUserDefaults standardUserDefaults] setObject:list forKey:self.lookupKey];
 		[[NSNotificationCenter defaultCenter] postNotificationName:self.lookupKey object:nil];
 	}
+}
+
+- (UIColor*) generalBackgroundColor {
+	return self.isDarkModeEnabled ? [UIColor darkGrayColor] : [UIColor lightGrayColor];
+}
+
+- (BOOL) isDarkModeEnabled {
+	if (@available(iOS 13.0, *))
+		return self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark;
+	else
+		return NO;
 }
 
 @end
